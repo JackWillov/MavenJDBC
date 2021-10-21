@@ -20,20 +20,12 @@ public class Main {
             Statement statement = con.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT  * from Persons");
             ContactRepositoryImpl repository = new ContactRepositoryImpl(statement, con);
-List<Contact> list = repository.getContacts();
-            for (int i = 0; i < list.size(); i++) {
-                System.out.println(list.get(i).getPersoID());
-                System.out.println(list.get(i).getLastName());
-                System.out.println(list.get(i).getAdres());
-                System.out.println(list.get(i).getFirstName());
-            }
 
 
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 
 
     }

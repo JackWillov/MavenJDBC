@@ -7,7 +7,7 @@ public interface ContactRepository {
 
     void saveBulk(List<Contact> contact);
 
-    void update( int id);
+    void update(int id);
 
     void delete(int id);
 

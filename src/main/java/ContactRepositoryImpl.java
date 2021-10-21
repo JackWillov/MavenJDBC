@@ -44,7 +44,7 @@ public class ContactRepositoryImpl implements ContactRepository {
     @Override
     public void update(int id) {
         String sql = "UPDATE Persons " +
-                "SET city = 'unknown' WHERE personid ="+id;
+                "SET city = 'unknown' WHERE personid =" + id;
         try {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
@@ -80,18 +80,18 @@ public class ContactRepositoryImpl implements ContactRepository {
         }
 
         try {
-for (int i = 1; i<count+1; i++){
-    Contact cont = new Contact(1,"default","default","default","default");
-    String query = "select PersonID, LastName, FirstNAme, Address, City from Persons where personid =" + i;
-    rs1 = statement.executeQuery(query);
-            while (rs1.next()) {
-                cont.setPersoID(rs1.getInt("PersonID"));
-                cont.setLastName(rs1.getString("LastName"));
-                cont.setFirstName(rs1.getString("FirstNAme"));
-                cont.setAdres(rs1.getString("Address"));
-                cont.setCity(rs1.getString("City"));
-                list.add(cont);
-            }
+            for (int i = 1; i < count + 1; i++) {
+                Contact cont = new Contact(1, "default", "default", "default", "default");
+                String query = "select PersonID, LastName, FirstNAme, Address, City from Persons where personid =" + i;
+                rs1 = statement.executeQuery(query);
+                while (rs1.next()) {
+                    cont.setPersoID(rs1.getInt("PersonID"));
+                    cont.setLastName(rs1.getString("LastName"));
+                    cont.setFirstName(rs1.getString("FirstNAme"));
+                    cont.setAdres(rs1.getString("Address"));
+                    cont.setCity(rs1.getString("City"));
+                    list.add(cont);
+                }
 
             }
         } catch (SQLException e) {
@@ -103,7 +103,7 @@ for (int i = 1; i<count+1; i++){
 
     @Override
     public Contact getContactById(int id) {
-Contact cont = new Contact(1,"default","default","default","default");
+        Contact cont = new Contact(1, "default", "default", "default", "default");
         String query = "select PersonID, LastName, FirstNAme, Address, City from Persons where personid =" + id;
         ResultSet rs = null;
         try {
@@ -122,5 +122,5 @@ Contact cont = new Contact(1,"default","default","default","default");
 
         return cont;
 
-        }
     }
+}
