@@ -8,7 +8,7 @@ import java.util.List;
 public class ContactRepositoryImpl implements ContactRepository {
     Connection con = null;
     Statement statement = null;
-    Contact cont = null;
+
 
     public ContactRepositoryImpl(Statement statement, Connection connection) {
         this.statement = statement;
